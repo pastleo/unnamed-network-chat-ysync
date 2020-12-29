@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatroom - an unnamed-network example - with youtube sync</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="container">
+    <div class="my-name-input-group input-group mt-3 mb-4">
+      <div class="input-group-prepend d-none d-lg-flex">
+        <span class="input-group-text" id="name-input-label">My Name</span>
+      </div>
+      <input id="name-input" type="text" class="form-control" aria-label="My Name" aria-describedby="name-input-label">
+      <div class="input-group-append">
+        <span id="my-addr" class="input-group-text text-secondary">myAddr</span>
+      </div>
+    </div>
+
+    <ul id="group-tabs" class="nav nav-tabs">
+      <li id="root-tab" class="nav-item">
+        <a class="group-link nav-link active" href="#">Welcome</a>
+      </li>
+      <li id="new-group" class="nav-item">
+        <a class="nav-link">+</a>
+      </li>
+    </ul>
+    <template id="group-tab-template">
+      <li class="nav-item">
+        <a class="group-link nav-link" href="#"></a>
+      </li>
+    </template>
+
+    <div id="group-contents" class="tab-contents">
+      <div id="root-group-content" class="tab-pane p-3 fade show active" role="tabpanel">
+        <div class="neighbor-info mb-3">
+          <span class="d-none d-lg-inline">there are</span> <span class="neighbor-cnt">0</span> neighbors...
+          <span class="group-neighbor-box"></span>
+        </div>
+        <div class="input-group mb-3">
+          <input id="knowing-input" type="text" class="form-control" placeholder="addr" aria-label="addr">
+          <div class="input-group-append">
+            <button id="know-btn" class="btn btn-primary" type="button">Know</button>
+            <button id="forget-btn" class="btn btn-secondary" type="button">Forget</button>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input id="join-input" type="text" class="form-control" placeholder="URL or Group id" aria-label="addr">
+          <div class="input-group-append">
+            <button id="join-btn" class="btn btn-secondary" type="button">Join</button>
+          </div>
+        </div>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/kogpQkkBlGY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <template id="group-content-template">
+      <div class="tab-pane p-3 fade" role="tabpanel">
+        <div class="d-flex">
+          <div class="neighbor-info flex-fill">
+            <span class="d-none d-lg-inline">there are</span> <span class="neighbor-cnt">0</span> neighbors...
+            <span class="group-neighbor-box"></span>
+          </div>
+          <div class="btn-group">
+            <button class="share-group-btn btn btn-success" type="button">Share</button>
+            <button class="leave-group-btn btn btn-danger" type="button">Leave</button>
+          </div>
+
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg py-3 d-flex flex-column justify-content-center">
+            <div class="media-box">
+              <div class="media-content mb-3">
+              </div>
+              <div class="input-group">
+                <input type="text" class="media-input form-control" placeholder="Youtube or Imgur URL" aria-label="media input">
+                <div class="input-group-append">
+                  <button class="btn btn-primary media-btn" type="button">Play</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg py-3 border-left msg-container">
+            <div class="group-msgs">
+            </div>
+            <div class="input-group">
+              <input type="text" class="msg-input form-control" placeholder="type some message" aria-label="message input">
+              <div class="input-group-append">
+                <button class="send-msg-btn btn btn-primary" type="button">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template id='neighbor-template'>
+      <span>
+        <span class="neighbor-name"></span>
+      </span>
+    </template>
+    <template id="msg-template">
+      <div class="msg">
+        <p><span class="author"></span><span class="from"></span></p>
+        <p class="content"></p>
+      </div>
+    </template>
+    <template id="media-imgur-template">
+      <div>
+        <img class="imgur-image img-fluid mx-auto d-block" src="" />
+      </div>
+    </template>
+    <template id="media-youtube-template">
+      <div class="embed-responsive embed-responsive-16by9">
+        <div class="youtube-player"></div>
+      </div>
+    </template>
+</body>
+</html>

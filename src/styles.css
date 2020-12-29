@@ -1,0 +1,78 @@
+@media screen and (min-width: 992px) {
+  .my-name-input-group .input-group-text {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+  }
+  .my-name-input-group > .form-control:not(textarea) {
+    height: calc(1.5em + 1rem + 2px);
+  }
+  .my-name-input-group > .form-control {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+  }
+}
+
+#new-group {
+  color: #28a745;
+  cursor: pointer;
+}
+
+.neighbor-info {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 8px;
+  font-size: 0.9rem;
+  color: #525252;
+}
+
+.group-neighbor-box {
+  margin-right: 4px;
+  color: #44a58f;
+}
+
+@media screen and (min-width: 992px) {
+  .msg-container {
+    max-width: 40%;
+  }
+}
+.msg-container {
+}
+.msg-container .group-msgs {
+  padding: .5rem;
+  height: calc(100vh - 20rem);
+  overflow-y: auto;
+}
+@media screen and (min-width: 992px) {
+  .msg-container .group-msgs {
+    height: calc(100vh - 18rem);
+  }
+}
+.msg-container .group-msgs .msg {
+  margin-bottom: 1em;
+}
+.msg-container .group-msgs .msg p {
+  margin-bottom: 0;
+}
+.msg-container .group-msgs .msg .author {
+  font-weight: bold;
+  margin-right: 6px;
+}
+.msg-container .group-msgs .msg .from {
+  color: #7b7b7b;
+  font-size: 0.8rem; 
+}
+
+.media-box {
+  max-height: calc(100vh - 24.5rem);
+  overflow-y: auto;
+}
+@media screen and (min-width: 992px) {
+  .media-box {
+    max-height: calc(100vh - 20rem);
+  }
+}

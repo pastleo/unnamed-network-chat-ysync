@@ -1,0 +1,33 @@
+{
+  "name": "unnamed-network-chat-ysync",
+  "version": "0.0.1",
+  "description": "chatroom application with youtube sync -- an example of unnamed-network",
+  "type": "module",
+  "main": "node.js",
+  "engines": {
+    "node": "14.12.0"
+  },
+  "scripts": {
+    "start": "node ./node.js",
+    "webpack-dev": "webpack serve --config webpack.config.cjs",
+    "webpack": "NODE_ENV=production webpack --config webpack.config.cjs",
+    "heroku-postbuild": "cp ./config.js.example ./config.js"
+  },
+  "author": "PastLeo",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "node-localstorage": "^2.1.6",
+    "style-loader": "^2.0.0",
+    "unnamed-network": "git+https://github.com/pastleo/unnamed-network.git",
+    "ws": "^7.4.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "http-server": "^0.12.3",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
