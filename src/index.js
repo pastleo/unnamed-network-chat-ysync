@@ -235,7 +235,10 @@ function App(connManager, { defaultFirstAddr, document, localStorage }) {
         groupNameLink.onclick = () => showGroup(group);
 
         contentDom.querySelector('.leave-group-btn').onclick = () => client.leave(group);
-        contentDom.querySelector('.share-group-btn').onclick = () => onShareClicked(group);
+        contentDom.querySelector('.copy-to-clipboard-group-btn').onclick = () => onCopyToClipboardClicked(group);
+        if (navigator.share) {
+          contentDom.querySelector('.share-group-btn').onclick = () => navigator.share({ url: genGroupURL(group).toString() });
+        }
 
         const msgInput = contentDom.querySelector('.msg-input');
         msgInput.onkeyup = ({ keyCode }) => {
@@ -268,25 +271,24 @@ function App(connManager, { defaultFirstAddr, document, localStorage }) {
       nameInput.value = myName;
     }
 
-    function onShareClicked(group) {
-      const [_, contentDom] = (groupDoms[group] || []);
+    function genGroupURL(group) {
       const url = new URL(window.location.href);
       url.hash = `#${group}`;
-      if (navigator.share) {
-        navigator.share({ url: url.toString() });
-      } else {
-        const mediaInput = contentDom.querySelector('.media-input')
-        const shareBtn = contentDom.querySelector('.share-group-btn');
-        const valueKeep = mediaInput.value;
-        mediaInput.value = url.toString();
-        mediaInput.select();
-        mediaInput.setSelectionRange(0, 99999);
-        document.execCommand("copy");
-        shareBtn.textContent = 'Link';
-        setTimeout(() => { shareBtn.textContent = 'Copied'; }, 1000);
-        setTimeout(() => { shareBtn.textContent = 'Share'; }, 2500);
-        mediaInput.value = valueKeep;
-      }
+      return url;
+    }
+
+    function onCopyToClipboardClicked(group) {
+      const [_, contentDom] = (groupDoms[group] || []);
+      const mediaInput = contentDom.querySelector('.media-input')
+      const btn = contentDom.querySelector('.copy-to-clipboard-group-btn');
+      const valueKeep = mediaInput.value;
+      mediaInput.value = genGroupURL(group).toString();
+      mediaInput.select();
+      mediaInput.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      btn.textContent = 'Copied to clipboard';
+      setTimeout(() => { btn.textContent = 'Copy to clipboard'; }, 2500);
+      mediaInput.value = valueKeep;
     }
 
     function onSentClicked(group, msgInput) {
