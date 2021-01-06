@@ -73,7 +73,17 @@
 
         </div>
         <div class="row justify-content-center">
-          <div class="col-lg py-3 d-flex flex-column justify-content-center">
+          <div class="col-lg py-3 border-left msg-container order-md-2">
+            <div class="group-msgs">
+            </div>
+            <div class="input-group">
+              <input type="text" class="msg-input form-control" placeholder="type some message" aria-label="message input">
+              <div class="input-group-append">
+                <button class="send-msg-btn btn btn-primary" type="button">Send</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg py-3 d-flex flex-column justify-content-center order-md-1">
             <div class="media-box">
               <div class="media-content mb-3">
               </div>
@@ -82,16 +92,6 @@
                 <div class="input-group-append">
                   <button class="btn btn-primary media-btn" type="button">Play</button>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg py-3 border-left msg-container">
-            <div class="group-msgs">
-            </div>
-            <div class="input-group">
-              <input type="text" class="msg-input form-control" placeholder="type some message" aria-label="message input">
-              <div class="input-group-append">
-                <button class="send-msg-btn btn btn-primary" type="button">Send</button>
               </div>
             </div>
           </div>
